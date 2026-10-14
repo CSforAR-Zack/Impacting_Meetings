@@ -1,29 +1,30 @@
-# Monty Hall Problem: Single Game
+# Monty Hall Problem: Multiple Games Simulation
 import random
 
 
 def main():
     """Simulate multiple Monty Hall games and count the number of wins."""
 
-    number_of_games = 10000000
+    number_of_games: int = 1000000
+    choice: str = "n"
 
-    wins = 0
-    losses = 0
+    wins: int = 0
+    losses: int = 0
 
     for game in range(number_of_games):
-        win = single_game("n")
+        win = single_game(choice)
         if win:
             wins += 1
         else:
             losses += 1
 
-    print("Total wins:", wins, "(", wins / number_of_games * 100, "%)")
-    print("Total losses:", losses, "(", losses / number_of_games * 100, "%)")
+    print("Total wins:", wins, f"({wins / number_of_games * 100}%)")
+    print("Total losses:", losses, f"({losses / number_of_games * 100}%)")
 
 
 def single_game(player_switch):
     # Track the positions of the car and goats behind the doors
-    spots = [0, 1, 2]
+    spots: list[int] = [0, 1, 2]
     random.shuffle(spots)
 
     car_door = spots[0]
