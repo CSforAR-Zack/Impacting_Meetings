@@ -43,7 +43,21 @@ def single_game(player_switch):
 
     # Ask the player if they want to switch doors
     if player_switch == "y":
-        player_choice = math_approach(player_choice, open_door)
+        if player_choice == 2:
+            if open_door == 1:
+                player_choice = 0
+            else:
+                player_choice = 1
+        elif player_choice == 1:
+            if open_door == 0:
+                player_choice = 2
+            else:
+                player_choice = 0
+        else:
+            if open_door == 1:
+                player_choice = 2
+            else:
+                player_choice = 1
 
     if player_choice == car_door:
         return True
@@ -51,44 +65,44 @@ def single_game(player_switch):
         return False
 
 
-def math_approach(player_choice, open_door):
-    """Return the door number that the player should switch to using the mathematical approach."""
-    return 3 - player_choice - open_door
+# def math_approach(player_choice, open_door):
+#     """Return the door number that the player should switch to using the mathematical approach."""
+#     return 3 - player_choice - open_door
 
 
-def if_else_approach(player_choice, open_door):
-    """Return the door number that the player should switch to using the if/else approach."""
-    if player_choice == 2:
-        if open_door == 1:
-            return 0
-        else:
-            return 1
-    elif player_choice == 1:
-        if open_door == 0:
-            return 2
-        else:
-            return 0
-    else:
-        if open_door == 1:
-            return 2
-        else:
-            return 1
+# def if_else_approach(player_choice, open_door):
+#     """Return the door number that the player should switch to using the if/else approach."""
+#     if player_choice == 2:
+#         if open_door == 1:
+#             return 0
+#         else:
+#             return 1
+#     elif player_choice == 1:
+#         if open_door == 0:
+#             return 2
+#         else:
+#             return 0
+#     else:
+#         if open_door == 1:
+#             return 2
+#         else:
+#             return 1
 
 
-def simplified_if_else_approach(player_choice, open_door):
-    """Return the door number that the player should switch to using the simplified if/else approach."""
-    if player_choice == 2 and open_door == 1:
-        return 0
-    elif player_choice == 2:
-        return 1
-    elif player_choice == 1 and open_door == 0:
-        return 2
-    elif player_choice == 1:
-        return 0
-    elif open_door == 1:
-        return 2
-    else:
-        return 1
+# def simplified_if_else_approach(player_choice, open_door):
+#     """Return the door number that the player should switch to using the simplified if/else approach."""
+#     if player_choice == 2 and open_door == 1:
+#         return 0
+#     elif player_choice == 2:
+#         return 1
+#     elif player_choice == 1 and open_door == 0:
+#         return 2
+#     elif player_choice == 1:
+#         return 0
+#     elif open_door == 1:
+#         return 2
+#     else:
+#         return 1
 
 
 main()
